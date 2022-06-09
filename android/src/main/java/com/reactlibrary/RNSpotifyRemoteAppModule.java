@@ -41,6 +41,8 @@ public class RNSpotifyRemoteAppModule extends ReactContextBaseJavaModule impleme
     private Connector.ConnectionListener mSpotifyRemoteConnectionListener;
     private Stack<Promise> mConnectPromises = new Stack<Promise>();
 
+    private static final int MODULE_ID = 100000;
+
     public RNSpotifyRemoteAppModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
@@ -77,7 +79,7 @@ public class RNSpotifyRemoteAppModule extends ReactContextBaseJavaModule impleme
     @Override
     @ReactMethod
     public void __registerAsJSEventEmitter(int moduleId) {
-        RNEventEmitter.registerEventEmitterModule(this.reactContext, moduleId, this);
+        RNEventEmitter.registerEventEmitterModule(this.reactContext, MODULE_ID, this);
     }
 
     @Override
